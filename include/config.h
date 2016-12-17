@@ -35,10 +35,12 @@ THE SOFTWARE.
 #define USBD_CONFIGURATION_STRING_FS (uint8_t*) "gs_usb config"
 #define USBD_INTERFACE_STRING_FS     (uint8_t*) "gs_usb interface"
 #define DFU_INTERFACE_STRING_FS      (uint8_t*) "candleLight firmware upgrade interface"
-#define USBD_SERIALNUMBER_STRING_FS  (uint8_t*) "000000000002"
+#define USBD_SERIALNUMBER_STRING_FS  (uint8_t*) "000000000001"
 
 #define BOARD_candleLight 1
 #define BOARD_cantact     2
+#define BOARD_canable     3
+#define BOARD_usb2can     4
 
 #if BOARD == BOARD_candleLight
 	#define USBD_PRODUCT_STRING_FS (uint8_t*) "candleLight USB to CAN adapter"
@@ -62,13 +64,50 @@ THE SOFTWARE.
 	// SILENT pin not connected
 
 	#define LED1_GPIO_Port GPIOB
-	#define LED1_Pin GPIO_PIN_0
+	#define LED1_Pin GPIO_PIN_0	/* green */
 	#define LED1_Mode GPIO_MODE_OUTPUT_PP
 
 	#define LED2_GPIO_Port GPIOB
-	#define LED2_Pin GPIO_PIN_1
+	#define LED2_Pin GPIO_PIN_1	/* red */
 	#define LED2_Mode GPIO_MODE_OUTPUT_PP
 
+#elif BOARD == BOARD_canable
+	#define USBD_PRODUCT_STRING_FS (uint8_t*) "canable gs_usb"
+
+	// SILENT pin not connected
+
+	#define LED1_GPIO_Port GPIOB
+	#define LED1_Pin GPIO_PIN_0	/* green */
+	#define LED1_Mode GPIO_MODE_OUTPUT_PP
+
+	#define LED2_GPIO_Port GPIOB
+	#define LED2_Pin GPIO_PIN_1	/* blue */
+	#define LED2_Mode GPIO_MODE_OUTPUT_PP
+
+#elif BOARD == BOARD_usb2can
+	#define USBD_PRODUCT_STRING_FS (uint8_t*) "USB2CAN RCA gs_usb"
+
+	// SILENT pin not connected
+
+	#define LED4_GPIO_Port GPIOA
+	#define LED4_Pin GPIO_PIN_0	/* white */
+	#define LED4_Mode GPIO_MODE_OUTPUT_OD
+	#define LED4_Active_Low
+
+	#define LED2_GPIO_Port GPIOA
+	#define LED2_Pin GPIO_PIN_1	/* blue */
+	#define LED2_Mode GPIO_MODE_OUTPUT_OD
+	#define LED2_Active_Low
+
+	#define LED3_GPIO_Port GPIOA 
+	#define LED3_Pin GPIO_PIN_2	/* red */
+	#define LED3_Mode GPIO_MODE_OUTPUT_OD
+	#define LED3_Active_Low
+
+	#define LED1_GPIO_Port GPIOB 
+	#define LED1_Pin GPIO_PIN_3	/* green */
+	#define LED1_Mode GPIO_MODE_OUTPUT_OD
+	#define LED1_Active_Low
 #else
 	#error please define BOARD
 #endif
