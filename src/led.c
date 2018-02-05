@@ -54,11 +54,8 @@ static void led_set(led_state_t *led, bool state)
 	if (!led->is_active_high) {
 		state = !state;
 	}
-#if BOARD == BOARD_candleLight || BOARD == BOARD_usb2can
+
 	HAL_GPIO_WritePin(led->port, led->pin, state ? GPIO_PIN_SET : GPIO_PIN_RESET);
-#else
-	HAL_GPIO_WritePin(led->port, led->pin, state ? GPIO_PIN_RESET : GPIO_PIN_SET);
-#endif
 }
 
 static uint32_t led_set_sequence_step(led_data_t *leds, uint32_t step_num)
