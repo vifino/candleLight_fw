@@ -6,7 +6,7 @@ SIZE = $(TOOLCHAIN)size
 
 CFLAGS  = -c -std=gnu11 -mcpu=cortex-m0 -mthumb -Os
 CFLAGS += -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants 
-CFLAGS += -Wall -Wextra -g3 -D$(CHIP) -D BOARD=BOARD_$(BOARD)
+CFLAGS += -Wall -Wextra -Wno-unused-parameter -g3 -D$(CHIP) -D BOARD=BOARD_$(BOARD)
 
 INCLUDES  = -I"include" 
 INCLUDES += -I"system/include" -I"system/include/cmsis" -I"system/include/stm32f0xx" -I"system/include/cmsis/device" 
