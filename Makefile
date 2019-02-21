@@ -66,6 +66,14 @@ usb2can:
 flash-usb2can:
 	$(MAKE) CHIP=STM32F042x6 BOARD=usb2can board-flash
 
+cando:
+	# not really xB, but x8 is not recognised, pretend we have double flash
+	$(MAKE) CHIP=STM32F072xB BOARD=cando bin
+
+flash-cando:
+	# not really xB, but x8 is not recognised, pretend we have double flash
+	$(MAKE) CHIP=STM32F072xB BOARD=cando board-flash
+
 board-flash: bin
 	sudo dfu-util -d 1d50:606f -a 0 -s 0x08000000 -D $(BIN)
 

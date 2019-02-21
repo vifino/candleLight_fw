@@ -38,6 +38,7 @@ THE SOFTWARE.
 #define BOARD_cantact     2
 #define BOARD_canable     3
 #define BOARD_usb2can     4
+#define BOARD_cando       5
 
 #if BOARD == BOARD_candleLight
 	#define USBD_PRODUCT_STRING_FS		(uint8_t*) "candleLight USB to CAN adapter"
@@ -103,15 +104,34 @@ THE SOFTWARE.
 	#define LED2_Mode GPIO_MODE_OUTPUT_OD
 	#define LED2_Active_Low
 
-	#define LED3_GPIO_Port GPIOA 
+	#define LED3_GPIO_Port GPIOA
 	#define LED3_Pin GPIO_PIN_2	/* red */
 	#define LED3_Mode GPIO_MODE_OUTPUT_OD
 	#define LED3_Active_Low
 
-	#define LED1_GPIO_Port GPIOB 
+	#define LED1_GPIO_Port GPIOB
 	#define LED1_Pin GPIO_PIN_3	/* green */
 	#define LED1_Mode GPIO_MODE_OUTPUT_OD
 	#define LED1_Active_Low
+#elif BOARD == BOARD_cando
+	#define USBD_PRODUCT_STRING_FS			(uint8_t*) "CANdo gs_usb"
+	#define USBD_MANUFACTURER_STRING		(uint8_t*) "vifino"
+	#define DFU_INTERFACE_STRING_FS			(uint8_t*) "CANdo firmware upgrade interface"
+
+	// SILENT pin not connected
+
+	#define LED1_GPIO_Port GPIOA
+	#define LED1_Pin GPIO_PIN_9	/* green */
+	#define LED1_Mode GPIO_MODE_OUTPUT_PP
+
+	#define LED2_GPIO_Port GPIOB
+	#define LED2_Pin GPIO_PIN_10	/* blue */
+	#define LED2_Mode GPIO_MODE_OUTPUT_PP
+
+	#define LED3_GPIO_Port GPIOB
+	#define LED3_Pin GPIO_PIN_9	/* red */
+	#define LED3_Mode GPIO_MODE_OUTPUT_PP
+
 #else
 	#error please define BOARD
 #endif
