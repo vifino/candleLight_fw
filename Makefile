@@ -41,6 +41,7 @@ clean:
 	$(MAKE) BOARD=cantact board-clean
 	$(MAKE) BOARD=canable board-clean
 	$(MAKE) BOARD=usb2can board-clean
+	$(MAKE) BOARD=cando board-clean
 
 candleLight:
 	$(MAKE) CHIP=STM32F042x6 BOARD=candleLight bin
