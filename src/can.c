@@ -31,12 +31,12 @@ void can_init(can_data_t *hcan, CAN_TypeDef *instance)
 	__HAL_RCC_CAN1_CLK_ENABLE();
 
 	GPIO_InitTypeDef itd;
-	itd.Pin = GPIO_PIN_8|GPIO_PIN_9;
+	itd.Pin = CAN_PINS;
 	itd.Mode = GPIO_MODE_AF_PP;
 	itd.Pull = GPIO_NOPULL;
 	itd.Speed = GPIO_SPEED_FREQ_HIGH;
 	itd.Alternate = GPIO_AF4_CAN;
-	HAL_GPIO_Init(GPIOB, &itd);
+	HAL_GPIO_Init(CAN_PORT, &itd);
 
 	hcan->instance   = instance;
 	hcan->brp        = 6;

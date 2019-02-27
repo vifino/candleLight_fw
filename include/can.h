@@ -26,6 +26,7 @@ THE SOFTWARE.
 
 #pragma once
 
+#include "config.h"
 #include <stdint.h>
 #include <stdbool.h>
 #include "stm32f0xx_hal.h"

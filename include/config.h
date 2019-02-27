@@ -27,6 +27,8 @@ THE SOFTWARE.
 #pragma once
 
 #define CAN_QUEUE_SIZE 64
+#define CAN_PINS GPIO_PIN_8|GPIO_PIN_9
+#define CAN_PORT GPIOB
 
 #define USBD_VID                     0x1d50
 #define USBD_PID_FS                  0x606f
@@ -122,16 +124,18 @@ THE SOFTWARE.
 
 	#define LED1_GPIO_Port GPIOA
 	#define LED1_Pin GPIO_PIN_9	/* green */
-	#define LED1_Mode GPIO_MODE_OUTPUT_PP
+	#define LED1_Mode GPIO_MODE_OUTPUT_OD
+	#define LED1_Active_Low
 
-	#define LED2_GPIO_Port GPIOB
+	#define LED2_GPIO_Port GPIOA
 	#define LED2_Pin GPIO_PIN_10	/* blue */
-	#define LED2_Mode GPIO_MODE_OUTPUT_PP
+	#define LED2_Mode GPIO_MODE_OUTPUT_OD
+	#define LED2_Active_Low
 
-	#define LED3_GPIO_Port GPIOB
+	#define LED3_GPIO_Port GPIOA
 	#define LED3_Pin GPIO_PIN_9	/* red */
-	#define LED3_Mode GPIO_MODE_OUTPUT_PP
-
+	#define LED3_Mode GPIO_MODE_OUTPUT_OD
+	#define LED3_Active_low
 #else
 	#error please define BOARD
 #endif
